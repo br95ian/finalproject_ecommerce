@@ -1,0 +1,94 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #89CFF0;
+}
+
+.container{
+    width: 100%;
+    max-width: 400px;
+    padding: 40px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.5);
+}
+
+.container h1{
+    font-size: 30px;
+    text-align: center;
+}
+
+.container .input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 20px 0;
+}
+
+.container .input-box input{
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: 2px solid #ccc;
+    padding: 0 10px;
+    font-size: 18px;
+    border-radius: 40px;
+}
+
+.container .input-box i{
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    font-size: 22px;
+    color: #ccc;
+}
+
+.container .remember-forgot{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.container .btn{
+    width: 100%;
+    height: 50px;
+    border: none;
+    outline: none;
+    background: #333;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: 0.5s ease-out;
+}
+
+.container .btn:hover{
+    background: blue;
+    transition: 0.5s ease-in;
+}
+
+.container .register{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.container .register a{
+    text-decoration: none;
+    color: blue;
+}
+
+.container .register a:hover{
+    text-decoration: underline;
+}
+
+
