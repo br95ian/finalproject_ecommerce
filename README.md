@@ -23,7 +23,7 @@ This is an e-commerce web application designed to facilitate online shopping. Us
 ## Installation
 1. Clone the repository:
    ```
-   git clone https://github.com/your_username/e-commerce.git
+   git clone https://github.com/br95ian/finalproject_ecommerce.git
    ```
 2. Navigate to the project directory:
    ```
