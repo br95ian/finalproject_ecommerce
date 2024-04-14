@@ -75,7 +75,9 @@ This is an e-commerce web application designed to facilitate online shopping. Us
   - PHP
   - MySQL
   
-
+- Links to Site and Youtube video:
+  - https://brianfinprojecommerce.000webhostapp.com
+  - https://youtu.be/8ZOKr2mRol8
   
 
 ## License
