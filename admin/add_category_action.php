@@ -7,18 +7,28 @@ if ($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['cat_btn'])) {
     $category = mysqli_real_escape_string($con, $_POST['category']);
 
     if(empty($category)){
-        echo "<div class='alert alert-danger'>Category field cannot be empty</div>";
+        echo "<script>alert('Category field cannot be empty')</script>";
     } 
     
     else {
-        $cat_sql = "INSERT INTO categories (catname,status) VALUES ('$category',1)";
-        $result= mysqli_query($con, $cat_sql);
-        if ($result) {
-            header('Location: add_category.php?msg=success');
-            header('Location: manage_category.php');
-        } 
+        $check= "SELECT * FROM categories WHERE catname='$category'";
+        $result= mysqli_query($con, $check);
+        $count= mysqli_num_rows($result);
+        if ($count>0) {
+            echo "<script>alert('Category already exists')</script>";
+           
+        }
         else {
-            header('Location: add_category.php?msg=error');
+            $cat_sql = "INSERT INTO categories (catname,status) VALUES ('$category',1)";
+            $result= mysqli_query($con, $cat_sql);
+            if ($result) {
+                header('Location: add_category.php?msg=success');
+                header('Location: manage_category.php');
+            } 
+            else {
+                header('Location: add_category.php?msg=error');
+            }
+    
         }
 
     }

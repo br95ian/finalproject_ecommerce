@@ -1,39 +1,32 @@
 <?php
-require_once '../settings/connection.php'; // Assuming this file contains the database connection
+session_start();
+include "../settings/connection.php";
 
-// Check if ID is provided in the URL
-if(isset($_GET['id']) && !empty($_GET['id'])) {
-    $category_id = $_GET['id'];
+if (isset($_POST['cat_btn_up'])) {
     
-    // Fetch the category information from the database based on the ID
-    $sql = "SELECT * FROM categories WHERE id = ?";
-    $stmt = $con->prepare($sql);
-    $stmt->bind_param("i", $category_id);
-    $stmt->execute();
-    $result = $stmt->get_result();
+    global $con;
+    $name_up = mysqli_real_escape_string($con, $_POST['category_up']);
+    $id = $_POST['id'];
 
-    if($result->num_rows > 0) {
-        $category = $result->fetch_assoc(); // Fetching category data
+    if(empty($id)){
+        echo "<div class='alert alert-danger'>Category field cannot be empty</div>";
+    } 
+    
+    else {
+        echo `Hello again`;
+        $edit_sql = "UPDATE categories SET catname='$name_up' WHERE id='$id'";
+        $result= mysqli_query($con, $edit_sql);
+        if ($result) {
+            echo "Hello destination";
+            header('Location: add_category.php?msg=success');
+            header('Location: manage_category.php');
+        } 
+        else {
+            echo "wrong destination";
 
-        // Check if form is submitted
-        if(isset($_POST['cat_btn_up'])) {
-            $new_category_name = $_POST['category_up'];
-
-            // Update category name in the database
-            $update_sql = "UPDATE categories SET category_name = ? WHERE id = ?";
-            $update_stmt = $conn->prepare($update_sql);
-            $update_stmt->bind_param("si", $new_category_name, $category_id);
-            if($update_stmt->execute()) {
-                echo "<div class='alert alert-success'>Category updated successfully</div>";
-            } else {
-                echo "<div class='alert alert-danger'>Error updating category</div>";
-            }
+            header('Location: edit_category.php?msg=error');
         }
-    } else {
-        echo "<div class='alert alert-danger'>Category not found</div>";
+
     }
-} 
-else {
-    echo "<div class='alert alert-danger'>No category ID provided</div>";
 }
 ?>

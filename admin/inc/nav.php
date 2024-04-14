@@ -3,12 +3,11 @@
     <!--HEADER-->
     <header class="header">
         <div class="page-brand">
-            <a class="link" href="index.html">
-                    <span class="brand">Admin
-                        <span class="brand-tip">CAST</span>
-                    </span>
-                <span class="brand-mini">AC</span>
-            </a>
+                <span class="brand">Control
+                    <span class="brand-tip">Panel</span>
+                </span>
+            <span class="brand-mini">AC</span>
+            
         </div>
         <div class="flexbox flex-1">
             <!--TOP-LEFT TOOLBAR-->
@@ -60,7 +59,7 @@
                 <li class="heading">FEATURES</li>
                 <li>
                     <a href="javascript:;"><i class="sidebar-item-icon fa fa-bookmark"></i>
-                        <span class="nav-label">Basic UI</span><i class="fa fa-angle-left arrow"></i></a>
+                        <span class="nav-label">Categories</span><i class="fa fa-angle-left arrow"></i></a>
                     <ul class="nav-2-level collapse">
                         <li>
                             <a href="add_category.php">Add Category</a>
@@ -71,9 +70,16 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="javascript:;"><i class="sidebar-item-icon fa fa-edit"></i>
-                        <span class="nav-label">Product</span></a>
-
+                    <a href="javascript:;"><i class="sidebar-item-icon fa fa-bars"></i>
+                        <span class="nav-label">Product</span><i class="fa fa-angle-left arrow"></i></a>
+                    <ul class="nav-2-level collapse">
+                        <li>
+                            <a href="add_product.php">Add Product</a>
+                        </li>
+                        <li>
+                            <a href="manage_product.php">Manage Product</a>
+                        </li>
+                    </ul>
                 </li>
                 <li>
                     <a href="logout.php"><i class="sidebar-item-icon fa fa-sign-out"></i>

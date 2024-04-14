@@ -1,6 +1,19 @@
+<?php require_once '../settings/connection.php'; ?>
 <?php require_once 'inc/header.php'; ?>
 <?php require_once 'inc/nav.php'; ?>
 <div class="content-wrapper">
+    <?php
+
+    if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+    }
+
+    $sql = "SELECT catname FROM categories WHERE id = '$id'";
+    $result = mysqli_query($con, $sql);
+    $row =  mysqli_fetch_assoc($result);
+    $name = $row['catname'];
+
+    ?>
 
     <div class="ibox">
         <div class="ibox-head">
@@ -14,7 +27,8 @@
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Category</label>
                     <div class="col-sm-10">
-                        <input class="form-control" type="text" name="category_up">
+                        <input type="hidden" value = "<?= $id ?>" name="id">
+                        <input class="form-control" value = "<?= $name ?>" type="text" name="category_up">
                     </div>
                 </div>
                 <div class="form-group row">
